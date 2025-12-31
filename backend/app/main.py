@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
+from app.controllers.task_profile import router as task_profile_router
 
 from app.config.database import database
 from app.config.settings import (
@@ -26,6 +27,8 @@ app.add_middleware(
     allow_methods=ALLOWED_METHODS,
     allow_headers=["*"],
 )
+
+app.include_router(task_profile_router)
 
 @app.get("/")
 async def root():

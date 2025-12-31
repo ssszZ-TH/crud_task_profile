@@ -1,0 +1,59 @@
+// CREATE 1
+POST /taskprofile
+{
+  "title": "ติดต่อลูกค้าเพื่อเสนอประกันชีวิต",
+  "detail": "โทรติดตามนายสมชายที่สนใจแบบประกันสะสมทรัพย์",
+  "fname": "สมชาย",
+  "lname": "ใจดี",
+  "phone_num": "081-234-5678",
+  "email": "somchai@gmail.com",
+  "birth_date": "1990-05-15",
+  "status": "active"
+}
+// CREATE 2
+POST /taskprofile
+{
+  "title": "เคลมประกันรถยนต์",
+  "detail": "นัดตรวจรถและประสานเอกสารกับบริษัทประกัน",
+  "fname": "สมหญิง",
+  "lname": "รักดี",
+  "phone_num": "089-876-5432",
+  "email": "somying@hotmail.com",
+  "birth_date": "1985-12-20",
+  "status": "active"
+}
+// CREATE 3
+POST /taskprofile
+{
+  "title": "ปิดเคสลูกค้าเก่า",
+  "detail": "ย้ายข้อมูลลูกค้าไปยัง archive หลังยกเลิกกรมธรรม์",
+  "fname": "ดวงใจ",
+  "lname": "สวยงาม",
+  "phone_num": "082-111-2222",
+  "email": null,
+  "birth_date": null,
+  "status": "inactive"
+}
+
+
+// UPDATE → เปลี่ยน status เป็น done (ตัวอย่าง id=2)
+PUT /taskprofile/2
+{
+  "status": "done",
+  "detail": "เคลมเรียบร้อย ลูกค้ารับเงินชดเชยแล้ว"
+}
+// UPDATE → เปลี่ยน status เป็น done (ตัวอย่าง id=2)
+PUT /taskprofile/2
+{
+  "status": "done",
+  "detail": "เคลมเรียบร้อย ลูกค้ารับเงินชดเชยแล้ว"
+}
+// UPDATE → เปลี่ยนเป็น inactive (ตัวอย่าง id=1)
+PUT /taskprofile/1
+{
+  "status": "inactive",
+  "detail": "ลูกค้าไม่สนใจชะลอไว้ก่อน"
+}
+
+// DELETE (ตัวอย่าง id=3)
+DELETE /taskprofile/3
