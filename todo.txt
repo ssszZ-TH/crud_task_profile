@@ -1,0 +1,10 @@
+เเก้ bug detail page ไม่ create
+
+1. ดู param ว่าส่งคำว่า create มาใช้มั้ย
+เอาขึ้น github
+2. เเก้ให้เป็น eng ล้วนๆ
+list all  ให้เอา birthdate create_at update_at มา show ด้วย
+ทำ api show log ด้วย
+frontend app bar custom ปุ่มกด home กับ Log
+3. test ให้ครบ crud
+4. ตรวจสอบ requirement PDF อีกครั้งว่าตรงมั้ย
