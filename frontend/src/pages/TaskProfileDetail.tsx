@@ -223,7 +223,7 @@ export default function TaskProfileDetail() {
               onChange={handleChange}
               fullWidth
               multiline
-              rows={3}
+              rows={7}
               margin="normal"
             />
             <TextField

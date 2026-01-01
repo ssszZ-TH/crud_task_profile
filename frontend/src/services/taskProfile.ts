@@ -45,14 +45,14 @@ export const createTaskProfile = async (data: TaskProfileCreate): Promise<TaskPr
 };
 
 export const getTaskProfiles = async (): Promise<TaskProfile[]> => {
-  console.log('will get task profiles');
   const response = await axios.get(`${BASE_URL}/taskprofile`);
+  console.log('fetched task profile data = ',response.data);
   return response.data;
 };
 
 export const getTaskProfileById = async (id: number): Promise<TaskProfile> => {
-  console.log('will get task profile by id');
   const response = await axios.get(`${BASE_URL}/taskprofile/${id}`);
+  console.log('fetched task profile data = ',response.data);
   return response.data;
 };
 

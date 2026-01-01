@@ -8,6 +8,7 @@ import UpdateButton from "../components/buttons/UpdateButton";
 import AddButton from "../components/buttons/AddButton";
 import Loading from "../components/Loading";
 import { GridColDef } from "@mui/x-data-grid";
+import { formatDateTimeThai, formatDateThai } from "../utils/time_util";
 
 export default function TaskProfiles() {
   const navigate = useNavigate();
@@ -70,15 +71,33 @@ export default function TaskProfiles() {
             fontWeight: "bold",
             color:
               params.value === "active"
-                ? "#2e7d32" // เขียวเข้ม
+                ? "#2e7d32"
                 : params.value === "inactive"
-                ? "#ed6c02" // ส้มเข้ม
-                : "#1e88e5", // น้ำเงิน
+                ? "#ed6c02"
+                : "#1e88e5",
           }}
         >
           {params.value}
         </Box>
       ),
+    },
+    {
+      field: "birth_date",
+      headerName: "Birth Date",
+      width: 130,
+      valueFormatter: (value) => formatDateThai(value),
+    },
+    {
+      field: "create_at",
+      headerName: "Created At",
+      width: 180,
+      valueFormatter: (value) => formatDateTimeThai(value),
+    },
+    {
+      field: "update_at",
+      headerName: "Updated At",
+      width: 180,
+      valueFormatter: (value) => formatDateTimeThai(value),
     },
   ];
 
