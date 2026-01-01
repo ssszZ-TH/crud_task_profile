@@ -3,7 +3,6 @@ import { Box, CircularProgress } from "@mui/material";
 import { useTheme } from "../contexts/ThemeContext";
 
 function Loading() {
-  const { isDarkMode } = useTheme();
 
   return (
     <Box

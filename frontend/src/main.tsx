@@ -4,12 +4,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Loading from "./components/Loading";
 
-interface UnprotectedRoute {
+const TaskProfiles = lazy(() => import("./pages/TaskProfiles"));
+const TaskProfileDetail = lazy(() => import("./pages/TaskProfileDetail"));
+
+interface AppRoute {
   path: string;
-  component: React.LazyExoticComponent<React.FC>;
+  element: React.ReactNode;
 }
 
-const unprotectedroutes: UnprotectedRoute[] = [];
+const routes: AppRoute[] = [
+  { path: "/", element: <TaskProfiles /> },
+  { path: "/taskprofile/create", element: <TaskProfileDetail /> },
+  { path: "/taskprofile/:id", element: <TaskProfileDetail /> }, // เปลี่ยนจาก :param เป็น :id
+];
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -17,14 +24,9 @@ createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Suspense fallback={<Loading />}>
           <Routes>
-            {unprotectedroutes.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={<route.component />}
-              />
+            {routes.map((route) => (
+              <Route key={route.path} path={route.path} element={route.element} />
             ))}
-
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         </Suspense>
