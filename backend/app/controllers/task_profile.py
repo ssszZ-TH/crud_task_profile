@@ -37,9 +37,9 @@ async def update_task_profile_endpoint(task_id: int, item: TaskProfileUpdate):
         raise HTTPException(status_code=404, detail="Task profile not found")
     return result
 
-@router.delete("/{task_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{task_id}", status_code=status.HTTP_200_OK)
 async def delete_task_profile_endpoint(task_id: int):
-    success = await delete_task_profile(task_id)
-    if not success:
+    result = await delete_task_profile(task_id)
+    if not result:
         raise HTTPException(status_code=404, detail="Task profile not found")
-    return None
+    return result  

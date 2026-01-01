@@ -25,9 +25,15 @@ QUERIES = {
     """,
     "update": """
         UPDATE task_profile
-        SET title = :title, detail = :detail, fname = :fname, lname = :lname,
-            phone_num = :phone_num, email = :email, birth_date = :birth_date,
-            status = :status, update_at = (NOW() AT TIME ZONE 'Asia/Bangkok')
+        SET title = COALESCE(:title, title),
+            detail = COALESCE(:detail, detail),
+            fname = COALESCE(:fname, fname),
+            lname = COALESCE(:lname, lname),
+            phone_num = COALESCE(:phone_num, phone_num),
+            email = COALESCE(:email, email),
+            birth_date = COALESCE(:birth_date, birth_date),
+            status = COALESCE(:status, status),
+            update_at = (NOW() AT TIME ZONE 'Asia/Bangkok')
         WHERE id = :id
         RETURNING id, title, detail, fname, lname, phone_num, email, birth_date, status, create_at, update_at
     """,
@@ -69,7 +75,7 @@ async def log_task_profile_history(task_id: Optional[int], data: dict, action: s
     logger.info(f"Logged task_profile history: id={task_id}, action={action}")
 
 async def create_task_profile(item: TaskProfileCreate) -> Optional[TaskProfileOut]:
-    values = item.dict()
+    values = item.model_dump()  # ใช้ model_dump แทน dict
     result = await database.fetch_one(query=QUERIES["create"], values=values)
     if result:
         await log_task_profile_history(result["id"], values, "create")
@@ -82,23 +88,45 @@ async def update_task_profile(task_id: int, item: TaskProfileUpdate) -> Optional
     if not old_data:
         return None
 
-    update_data = item.dict(exclude_unset=True)
+    update_data = item.model_dump(exclude_unset=True)
     if not update_data:
         return old_data
 
-    values = {**update_data, "id": task_id}
-    result = await database.fetch_one(query=QUERIES["update"], values=values)
+    # ส่งค่าทุก field โดยใช้ค่าเดิมถ้าไม่มีการเปลี่ยนแปลง
+    full_values = {
+        "title": update_data.get("title", old_data.title),
+        "detail": update_data.get("detail", old_data.detail),
+        "fname": update_data.get("fname", old_data.fname),
+        "lname": update_data.get("lname", old_data.lname),
+        "phone_num": update_data.get("phone_num", old_data.phone_num),
+        "email": update_data.get("email", old_data.email),
+        "birth_date": update_data.get("birth_date", old_data.birth_date),
+        "status": update_data.get("status", old_data.status),
+        "id": task_id
+    }
 
+    result = await database.fetch_one(query=QUERIES["update"], values=full_values)
     if result:
-        await log_task_profile_history(task_id, {**old_data.dict(), **update_data}, "update")
+        # Log ด้วยข้อมูลหลัง update (result)
+        log_data = {
+            "title": result["title"],
+            "detail": result["detail"],
+            "fname": result["fname"],
+            "lname": result["lname"],
+            "phone_num": result["phone_num"],
+            "email": result["email"],
+            "birth_date": result["birth_date"],
+            "status": result["status"]
+        }
+        await log_task_profile_history(task_id, log_data, "update")
         logger.info(f"Updated task_profile id={task_id}")
         return TaskProfileOut(**result._mapping)
     return None
 
-async def delete_task_profile(task_id: int) -> bool:
+async def delete_task_profile(task_id: int) -> dict:
     old_data = await database.fetch_one(query=QUERIES["delete_get"], values={"id": task_id})
     if not old_data:
-        return False
+        return None  # จะ raise 404 ใน controller
 
     data_dict = old_data._mapping
     await log_task_profile_history(task_id, data_dict, "delete")
@@ -106,5 +134,5 @@ async def delete_task_profile(task_id: int) -> bool:
     result = await database.fetch_one(query=QUERIES["delete"], values={"id": task_id})
     if result:
         logger.info(f"Deleted task_profile id={task_id}")
-        return True
-    return False
+        return {"message": "deleted successfully", "id": task_id}
+    return None
