@@ -33,7 +33,7 @@ class TaskProfileOut(BaseModel):
     birth_date: Optional[date] = None
     status: str
     create_at: datetime
-    update_at: datetime
+    update_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True

@@ -33,7 +33,7 @@ QUERIES = {
             email = COALESCE(:email, email),
             birth_date = COALESCE(:birth_date, birth_date),
             status = COALESCE(:status, status),
-            update_at = (NOW() AT TIME ZONE 'Asia/Bangkok')
+            update_at = NOW()
         WHERE id = :id
         RETURNING id, title, detail, fname, lname, phone_num, email, birth_date, status, create_at, update_at
     """,
