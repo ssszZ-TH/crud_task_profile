@@ -6,6 +6,7 @@ import Loading from "./components/Loading";
 
 const TaskProfiles = lazy(() => import("./pages/TaskProfiles"));
 const TaskProfileDetail = lazy(() => import("./pages/TaskProfileDetail"));
+const TaskProfileLogs = lazy(() => import("./pages/TaskProfileLogs"));
 
 interface AppRoute {
   path: string;
@@ -16,6 +17,7 @@ const routes: AppRoute[] = [
   { path: "/", element: <TaskProfiles /> },
   { path: "/taskprofile/create", element: <TaskProfileDetail /> },
   { path: "/taskprofile/:id", element: <TaskProfileDetail /> }, // เปลี่ยนจาก :param เป็น :id
+  { path: "/taskprofilelog", element: <TaskProfileLogs /> },
 ];
 
 createRoot(document.getElementById("root")!).render(
@@ -25,7 +27,11 @@ createRoot(document.getElementById("root")!).render(
         <Suspense fallback={<Loading />}>
           <Routes>
             {routes.map((route) => (
-              <Route key={route.path} path={route.path} element={route.element} />
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
             ))}
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>

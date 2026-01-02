@@ -9,6 +9,7 @@ import AddButton from "../components/buttons/AddButton";
 import Loading from "../components/Loading";
 import { GridColDef } from "@mui/x-data-grid";
 import { formatDateTimeThai, formatDateThai } from "../utils/time_util";
+import LogButton from "../components/buttons/LogButton";
 
 export default function TaskProfiles() {
   const navigate = useNavigate();
@@ -123,7 +124,10 @@ export default function TaskProfiles() {
           <Typography variant="h4" sx={{ color: "text.primary" }}>
             รายการ Task ทั้งหมด
           </Typography>
-          <AddButton onClick={() => navigate("/taskprofile/create")} />
+          <Box sx={{ display: "flex", gap: 2 }}>
+            <LogButton /> {/* ปุ่มดู Log ใหม่ */}
+            <AddButton onClick={() => navigate("/taskprofile/create")} />
+          </Box>
         </Box>
         {loading ? (
           <Loading />
