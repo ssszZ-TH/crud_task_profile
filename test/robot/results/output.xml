@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.11.7 on win32)" generated="2026-01-04T20:16:34.624434" rpa="false" schemaversion="5">
+<suite id="s1" name="Crud Task Profile" source="D:\work\with_siriraj\crud_task_profile">
+<suite id="s1-s1" name="Test" source="D:\work\with_siriraj\crud_task_profile\test">
+<suite id="s1-s1-s1" name="Robot" source="D:\work\with_siriraj\crud_task_profile\test\robot">
+<suite id="s1-s1-s1-s1" name="Add" source="D:\work\with_siriraj\crud_task_profile\test\robot\add.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:16:34.912143" level="INFO">Opening browser 'chrome' to base url 'http://localhost:5173'.</msg>
+<arg>http://localhost:5173</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:16:34.912143" elapsed="2.682095"/>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="TC001 - Create New Task Profile Successfully (Minimal Required Fields)" line="56">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:16:37.600949" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:16:37.600949" elapsed="0.278683"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:16:37.879632" elapsed="0.422342"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:16:38.306363" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:16:38.301974" elapsed="0.074713"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:16:48.707729" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:16:48.707729" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:16:38.376687" elapsed="10.355665">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:37.879632" elapsed="10.852720">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Test Task Title</arg>
+<arg>John</arg>
+<arg>Doe</arg>
+<status status="NOT RUN" start="2026-01-04T20:16:48.733031" elapsed="0.000000"/>
+</kw>
+<kw name="Click Save And Wait Success">
+<status status="NOT RUN" start="2026-01-04T20:16:48.733031" elapsed="0.001008"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:37.594868" elapsed="11.139171">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="TC002 - Create With All Fields Filled Correctly" line="61">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:16:48.747567" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:16:48.746437" elapsed="0.082019"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:16:48.829458" elapsed="0.317466"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:16:49.146924" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:16:49.146924" elapsed="0.056392"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:16:59.406824" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:16:59.407830" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:16:49.203316" elapsed="10.208513">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:48.829458" elapsed="10.582371">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Premium Insurance Follow-up</arg>
+<arg>Alice</arg>
+<arg>Smith</arg>
+<status status="NOT RUN" start="2026-01-04T20:16:59.411829" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Optional Fields">
+<arg>detail=Follow up on premium plan interest</arg>
+<arg>phone=1234567890123</arg>
+<arg>email=alice.smith@example.com</arg>
+<arg>month=05</arg>
+<arg>day=15</arg>
+<arg>year=1990</arg>
+<arg>status=active</arg>
+<status status="NOT RUN" start="2026-01-04T20:16:59.411829" elapsed="0.001506"/>
+</kw>
+<kw name="Click Save And Wait Success">
+<status status="NOT RUN" start="2026-01-04T20:16:59.413335" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:48.744272" elapsed="10.669063">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="TC003 - Create With Inactive Status" line="74">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:16:59.425656" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:16:59.425656" elapsed="0.059038"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:16:59.485693" elapsed="0.215734"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:16:59.701427" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:16:59.701427" elapsed="0.045408"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:09.940212" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:17:09.940212" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:16:59.746835" elapsed="10.200464">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:59.485693" elapsed="10.462540">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Paused Customer Contact</arg>
+<arg>Bob</arg>
+<arg>Johnson</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:09.948233" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Optional Fields">
+<arg>status=inactive</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:09.949240" elapsed="0.000000"/>
+</kw>
+<kw name="Click Save And Wait Success">
+<status status="NOT RUN" start="2026-01-04T20:17:09.950237" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:59.422141" elapsed="10.528096">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="TC004 - Create With Done Status" line="80">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:17:09.962974" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:17:09.962974" elapsed="0.070376"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:17:10.033350" elapsed="0.213059"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:10.246409" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:17:10.246409" elapsed="0.051219"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:20.495993" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:17:20.496512" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:17:10.297628" elapsed="10.204367">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:10.033350" elapsed="10.468645">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Completed Claim Case</arg>
+<arg>Carol</arg>
+<arg>Williams</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:20.502537" elapsed="0.000527"/>
+</kw>
+<kw name="Fill Optional Fields">
+<arg>status=done</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:20.503064" elapsed="0.000000"/>
+</kw>
+<kw name="Click Save And Wait Success">
+<status status="NOT RUN" start="2026-01-04T20:17:20.504075" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:09.960312" elapsed="10.543763">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t5" name="TC005 - Validation Error - Missing Required Fields" line="86">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:17:20.516612" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:17:20.516612" elapsed="0.068559"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:17:20.586688" elapsed="0.220108"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:20.807805" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:17:20.806796" elapsed="0.059269"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:31.099675" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:17:31.099675" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:17:20.866065" elapsed="10.239247">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:20.585171" elapsed="10.520141">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${SAVE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:31.105312" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Task Title, First Name, and Last Name are required</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:31.105312" elapsed="0.001693"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:20.512612" elapsed="10.594393">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t6" name="TC006 - Validation Error - Invalid Phone Number" line="91">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:17:31.121275" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:17:31.120267" elapsed="0.056646"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:17:31.178412" elapsed="0.211554"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:31.389966" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:17:31.389966" elapsed="0.052359"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:41.659868" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:17:41.659868" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:17:31.442325" elapsed="10.221589">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:31.176913" elapsed="10.487001">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Invalid Phone Test</arg>
+<arg>Test</arg>
+<arg>User</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:41.664916" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${PHONE_INPUT}</arg>
+<arg>abc123</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:41.664916" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${SAVE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:41.664916" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Invalid phone format</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:41.666426" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:31.116754" elapsed="10.549672">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<test id="s1-s1-s1-s1-t7" name="TC007 - Validation Error - Invalid Email" line="98">
+<kw name="Go To" owner="SeleniumLibrary" type="SETUP">
+<msg time="2026-01-04T20:17:41.679053" level="INFO">Opening url 'http://localhost:5173'</msg>
+<arg>http://localhost:5173</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-04T20:17:41.679053" elapsed="0.072011"/>
+</kw>
+<kw name="Click Add Button And Wait Page Load">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${ADD_BUTTON}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-04T20:17:41.751064" elapsed="0.218429"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:41.971518" level="INFO">Clicking element '//*[@id="root"]/div/div/div[1]/div/button[2]'.</msg>
+<arg>${ADD_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-04T20:17:41.971000" elapsed="0.059746"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-01-04T20:17:52.240653" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-04T20:17:52.241660" level="FAIL">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</msg>
+<arg>${TITLE_INPUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-01-04T20:17:42.031276" elapsed="10.214385">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:41.751064" elapsed="10.494597">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Fill Required Fields">
+<arg>Invalid Email Test</arg>
+<arg>Test</arg>
+<arg>User</arg>
+<status status="NOT RUN" start="2026-01-04T20:17:52.245661" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${EMAIL_INPUT}</arg>
+<arg>not-an-email</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:52.245661" elapsed="0.001045"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${SAVE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:52.246706" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Invalid email address</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2026-01-04T20:17:52.246706" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:17:41.675034" elapsed="10.571672">Element '//*[@id=":r59:"]' did not appear in 10 seconds.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-04T20:17:52.253286" elapsed="2.331109"/>
+</kw>
+<status status="FAIL" start="2026-01-04T20:16:34.684972" elapsed="79.899423"/>
+</suite>
+<status status="FAIL" start="2026-01-04T20:16:34.677473" elapsed="79.911132"/>
+</suite>
+<status status="FAIL" start="2026-01-04T20:16:34.669625" elapsed="79.921618"/>
+</suite>
+<status status="FAIL" start="2026-01-04T20:16:34.646756" elapsed="79.947094"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="7" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Crud Task Profile" id="s1" pass="0" fail="7" skip="0">Crud Task Profile</stat>
+<stat name="Test" id="s1-s1" pass="0" fail="7" skip="0">Crud Task Profile.Test</stat>
+<stat name="Robot" id="s1-s1-s1" pass="0" fail="7" skip="0">Crud Task Profile.Test.Robot</stat>
+<stat name="Add" id="s1-s1-s1-s1" pass="0" fail="7" skip="0">Crud Task Profile.Test.Robot.Add</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
